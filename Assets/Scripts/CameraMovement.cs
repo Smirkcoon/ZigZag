@@ -17,4 +17,12 @@ public class CameraMovement : MonoBehaviour
 
         transform.position = smoothedPosition;
     }
+    private void Start()
+    {
+        GameManager.inst.ResetPos += ResetPosCamera;
+    }
+    private void ResetPosCamera(Vector3 vec3)
+    {
+        transform.position -= vec3;
+    }
 }
