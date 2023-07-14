@@ -21,9 +21,9 @@ public class Timer : MonoBehaviour
         if (!InGame)
             return;
 
-        floatTimerProgress += Time.deltaTime; // Увеличиваем прошедшее время на время, прошедшее с прошлого обновления кадра
+        floatTimerProgress += Time.deltaTime; // Increment the elapsed time by the time elapsed since the last frame update
 
-        // Преобразование прошедшего времени в формат минут:секунды
+        // Convert elapsed time to minutes:seconds format
         string minutes = ((int)floatTimerProgress / 60).ToString("00");
         string seconds = (floatTimerProgress % 60).ToString("00");
         textTimerProgress.text = minutes + ":" + seconds;

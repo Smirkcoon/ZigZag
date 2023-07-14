@@ -51,7 +51,6 @@ public class AudioManager : MonoBehaviour
     }
     public void Play1ShotMenu()
     {
-        Debug.Log("Play1ShotMenu");
         audioSourcePlay1Shot.PlayOneShot(audioClipMenu);
     }
 }

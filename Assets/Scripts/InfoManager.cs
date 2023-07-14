@@ -9,7 +9,7 @@ public class InfoManager : MonoBehaviour
     [SerializeField] private GameObject infoMobile;
     [SerializeField] private TextMeshPro prefabAddScore;
     [SerializeField] private Transform infoParent;
-    // Start is called before the first frame update
+
     private void Start()
     {
 #if UNITY_STANDALONE
@@ -37,13 +37,13 @@ public class InfoManager : MonoBehaviour
 
     public void NewInfoAddScore()
     {
+        //Create a new random color
         byte r = (byte)Random.Range(0, 256);
         byte g = (byte)Random.Range(0, 256);
         byte b = (byte)Random.Range(0, 256);
         byte a = 0;
-
-        // Создаем новый случайный цвет
         Color randomColor = new Color32(r, g, b, a);
+
         TextMeshPro text = Instantiate(prefabAddScore, GameManager.inst.GetPlayerPos(), Quaternion.identity, infoParent);
         text.transform.LookAt(Camera.main.transform.position);
         text.color = randomColor;

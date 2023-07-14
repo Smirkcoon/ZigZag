@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// действие на кнопке перезагрузки уровня при проигрыше
+    /// action on Restart button
     /// </summary>
     public void RestartSceneButton()
     {
@@ -60,17 +60,17 @@ public class GameManager : MonoBehaviour
         losePanel.SetActive(true);
         SaveData();
     }
-    public void SaveData()//сохранение данные
+    public void SaveData()
     {
-        PlayerPrefs.SetInt("ColorId", playerController.СolorIdForSave);//цвет игрока
+        PlayerPrefs.SetInt("ColorId", playerController.СolorIdForSave);//Player Color
         if (scoreInt > PlayerPrefs.GetInt("BestScore",0))
-            PlayerPrefs.SetInt("BestScore", scoreInt);//лучший счет
-        PlayerPrefs.SetInt("CheatIsOn", cheat.isOn? 0 : 1);//включен чит или нет
-        PlayerPrefs.SetInt("IsMute", AudioManager.IsMute ? 1 : 0);//включен звук или нет
+            PlayerPrefs.SetInt("BestScore", scoreInt);//Best Score
+        PlayerPrefs.SetInt("CheatIsOn", cheat.isOn? 0 : 1);//CheatOn or CheatOff
+        PlayerPrefs.SetInt("IsMute", AudioManager.IsMute ? 1 : 0);//MuteOn or MuteOff
         PlayerPrefs.Save();
     }
     /// <summary>
-    /// збрассывание позиции что бы не набрались бесконечные цифры
+    /// resetting the position so that infinite numbers do not get
     /// </summary>
     /// <returns></returns>
     private IEnumerator ResetPositionIfNeeded()
