@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public static Vector3 PosToMove;
     [HideInInspector]
-    public int ÑolorIdForSave;
+    public int colorIdForSave;
     
     [SerializeField] private float moveSpeed = 10f;//Player Ball Speed
     [SerializeField] private Toggle[] changeColor;
@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        ÑolorIdForSave = PlayerPrefs.GetInt("ColorId", 0);
-        changeColor[ÑolorIdForSave].isOn = true;
-        meshRenderer.material.color = changeColor[ÑolorIdForSave].image.color;//use saved color
+        colorIdForSave = PlayerPrefs.GetInt("ColorId", 0);
+        changeColor[colorIdForSave].isOn = true;
+        meshRenderer.material.color = changeColor[colorIdForSave].image.color;//use saved color
         for (int i = 0; i < changeColor.Length; i++)
         {
             int x = i;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
             {
                 AudioManager.inst.Play1ShotMenu();
                 meshRenderer.material.color = changeColor[x].image.color;
-                ÑolorIdForSave = x;
+                colorIdForSave = x;
             });
         }
 

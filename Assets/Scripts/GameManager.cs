@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     }
     public void SaveData()
     {
-        PlayerPrefs.SetInt("ColorId", playerController.ÑolorIdForSave);//Player Color
+        PlayerPrefs.SetInt("ColorId", playerController.colorIdForSave);//Player Color
         if (scoreInt > PlayerPrefs.GetInt("BestScore",0))
             PlayerPrefs.SetInt("BestScore", scoreInt);//Best Score
         PlayerPrefs.SetInt("CheatIsOn", cheat.isOn? 0 : 1);//CheatOn or CheatOff
